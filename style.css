@@ -1,0 +1,223 @@
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #1e40af;
+  --background-color: #f1f5f9;
+  --card-color: #ffffff;
+  --text-color: #1e293b;
+  --error-color: #ef4444;
+  --success-color: #22c55e;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+header {
+  padding: 2rem 0;
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+
+section {
+  background: var(--card-color);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.input_section,
+.search_section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input label {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.input input {
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.input input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.input_inline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+#searchSubmit {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.book_shelf {
+  display: grid;
+  gap: 1rem;
+}
+
+[data-testid="bookItem"] {
+  background: var(--card-color);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+[data-testid="bookItem"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+[data-testid="bookItemTitle"] {
+  color: var(--primary-color);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+[data-testid="bookItemAuthor"],
+[data-testid="bookItemYear"] {
+  color: #64748b;
+  margin-bottom: 0.25rem;
+}
+
+[data-testid="bookItem"] div {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+[data-testid="bookItemIsCompleteButton"] {
+  background-color: var(--success-color);
+}
+
+[data-testid="bookItemIsCompleteButton"]:hover {
+  background-color: #15803d;
+}
+
+[data-testid="bookItemDeleteButton"] {
+  background-color: var(--error-color);
+}
+
+[data-testid="bookItemDeleteButton"]:hover {
+  background-color: #b91c1c;
+}
+
+[data-testid="bookItemEditButton"] {
+  background-color: #f59e0b;
+}
+
+[data-testid="bookItemEditButton"]:hover {
+  background-color: #d97706;
+}
+
+@media (min-width: 768px) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .input_section,
+  .search_section {
+    grid-column: span 2;
+  }
+
+  #searchSubmit {
+    width: auto;
+    margin-top: 0;
+  }
+
+  .search_section form {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+  }
+
+  .search_section .input {
+    flex: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 1rem;
+  }
+
+  section {
+    padding: 1rem;
+  }
+
+  [data-testid="bookItem"] div {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: var(--primary-color);
+  cursor: pointer;
+}
